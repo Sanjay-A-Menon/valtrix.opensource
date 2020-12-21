@@ -1,0 +1,99 @@
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+LOAD build/mmu.o
+LOAD build/uart.o
+LOAD build/init.o
+LOAD build/mmu_cpp.o
+
+MMU             0x00000000c0000000     0x122f load address 0x0000000080000000
+ */init.o(*)
+ .text          0x00000000c0000000       0x20 build/init.o
+                0x00000000c0000000                abc
+ *fill*         0x00000000c0000020       0xe0 
+ .data          0x00000000c0000100     0x1000 build/init.o
+ .bss           0x00000000c0001100        0x0 build/init.o
+ .debug_line    0x00000000c0001100       0x5b build/init.o
+ .debug_info    0x00000000c000115b       0x2e build/init.o
+ .debug_abbrev  0x00000000c0001189       0x14 build/init.o
+ *fill*         0x00000000c000119d        0x3 
+ .debug_aranges
+                0x00000000c00011a0       0x30 build/init.o
+ .debug_str     0x00000000c00011d0       0x2c build/init.o
+ .riscv.attributes
+                0x00000000c00011fc       0x33 build/init.o
+
+BOOTUP_0        0x0000000081000000     0xd43d
+ */mmu.o(*)
+ .text          0x0000000081000000       0x6c build/mmu.o
+                0x0000000081000000                _start
+                0x000000008100005e                come_here
+                0x000000008100006a                loop
+ *fill*         0x000000008100006c       0x94 
+ .data          0x0000000081000100     0x1100 build/mmu.o
+                0x0000000081000100                arr
+ .bss           0x0000000081001200        0x0 build/mmu.o
+ .debug_line    0x0000000081001200       0xae build/mmu.o
+ .debug_info    0x00000000810012ae       0x2e build/mmu.o
+ .debug_abbrev  0x00000000810012dc       0x14 build/mmu.o
+ .debug_aranges
+                0x00000000810012f0       0x30 build/mmu.o
+ .debug_str     0x0000000081001320       0x2b build/mmu.o
+ .riscv.attributes
+                0x000000008100134b       0x33 build/mmu.o
+ */mmu_cpp.o(*)
+ .text          0x000000008100137e       0x9c build/mmu_cpp.o
+                0x000000008100137e                pg_populate
+ .data          0x000000008100141a        0x0 build/mmu_cpp.o
+ *fill*         0x000000008100141a      0xbe6 
+ .bss           0x0000000081002000     0xa000 build/mmu_cpp.o
+                0x0000000081002000                pg_lvl
+ .debug_info    0x000000008100c000       0xd7 build/mmu_cpp.o
+ .debug_abbrev  0x000000008100c0d7       0x93 build/mmu_cpp.o
+ .debug_aranges
+                0x000000008100c16a       0x30 build/mmu_cpp.o
+ .debug_line    0x000000008100c19a      0x1a7 build/mmu_cpp.o
+ .debug_str     0x000000008100c341       0x2e build/mmu_cpp.o
+                                         0xf4 (size before relaxing)
+ .comment       0x000000008100c36f       0x2d build/mmu_cpp.o
+ *fill*         0x000000008100c36f        0x1 
+ .eh_frame      0x000000008100c370       0x38 build/mmu_cpp.o
+ .riscv.attributes
+                0x000000008100c3a8       0x35 build/mmu_cpp.o
+ */uart.o(*)
+ *fill*         0x000000008100c3dd        0x1 
+ .text          0x000000008100c3de      0x446 build/uart.o
+                0x000000008100c3de                sting_putc_fesvr(char)
+                0x000000008100c46e                sting_puts_fesvr(char const*, unsigned int)
+                0x000000008100c4f2                print(char const*)
+                0x000000008100c536                print(unsigned long)
+                0x000000008100c65a                printhex(int)
+                0x000000008100c7b0                sting_exit_fesvr
+                0x000000008100c806                uart
+ .data          0x000000008100c824        0x0 build/uart.o
+ *fill*         0x000000008100c824        0x4 
+ .bss           0x000000008100c828       0x40 build/uart.o
+                0x000000008100c828                magic_mem
+ .sbss          0x000000008100c868       0x11 build/uart.o
+                0x000000008100c868                tohost
+                0x000000008100c870                fromhost
+                0x000000008100c878                printchar
+ .debug_info    0x000000008100c879      0x354 build/uart.o
+ .debug_abbrev  0x000000008100cbcd      0x146 build/uart.o
+ .debug_aranges
+                0x000000008100cd13       0x30 build/uart.o
+ .debug_line    0x000000008100cd43      0x409 build/uart.o
+ .debug_str     0x000000008100d14c      0x16e build/uart.o
+                                        0x1aa (size before relaxing)
+ .comment       0x000000008100d2ba       0x2c build/uart.o
+                                         0x2d (size before relaxing)
+ *fill*         0x000000008100d2e6        0x2 
+ .eh_frame      0x000000008100d2e8      0x120 build/uart.o
+ .riscv.attributes
+                0x000000008100d408       0x35 build/uart.o
+OUTPUT(ABC.elf elf64-littleriscv)
