@@ -1,5 +1,3 @@
-//#include "conf_sc.h"
-//#include "rv_uart.h"
 #include<stdint-gcc.h>
 
 
@@ -11,9 +9,7 @@ volatile uint64_t  magic_mem[8];
 volatile char      printchar;
 
 
-//extern RunTimeData run_time_data;
-
-void sting_putc_fesvr(const char c)
+void putc_spike(const char c)
 {
     printchar = c;
 
@@ -30,9 +26,8 @@ void sting_putc_fesvr(const char c)
 
 }
 
-void sting_puts_fesvr(const char* buffer, uint32_t len)
+void puts_spike(const char* buffer, uint32_t len)
 {
-    // printchar = c;
 
     magic_mem[0] = 64;
     magic_mem[1] = 1;
@@ -47,13 +42,11 @@ void sting_puts_fesvr(const char* buffer, uint32_t len)
     
 }
 
-
-
 void print(const char* c)
 {
     int i;
     for(i=0;c[i]!='\0';++i);
-    sting_puts_fesvr(c,i);
+    puts_spike(c,i);
 }
 
 void print(uint64_t a)
@@ -67,11 +60,9 @@ void print(uint64_t a)
   }
   while(a!=0)
   {
-    //print(c);
     c[i] = (a%10) +48;
     a = a/10;
     i++;
-    //sting_putc_fesvr(c[i]);
   }
   for(int j=0;j<i/2;++j)
   {
@@ -111,7 +102,7 @@ void printhex(int a)
    print(c);
 }
 
-extern "C" void sting_exit_fesvr()
+extern "C" void exit_spike()
 {
     magic_mem[0] = 93;
     magic_mem[1] = 1;
@@ -123,55 +114,8 @@ extern "C" void sting_exit_fesvr()
     while(1);
 }
 
-extern "C" void uart(uint64_t a)
+extern "C" void uart_spike(uint64_t a)
 {
-      //print("This is cpu id:");
       print(a);
-      //print("\n");
-   //print("Hello\n");
-   //print(1234);
-   //print("\n");
-   //printhex(1234);
-   //print("\n");
+      print("\n");
 }
-
-/*void sting_exit_fesvr()
-{
-    magic_mem[0] = 93;
-    magic_mem[1] = 0;
-
-    if (run_time_data.test_status == TestStatus::TEST_PASS)
-        magic_mem[1] = 0;
-    else
-        magic_mem[1] = 1;
-
-    tohost = (va_t)magic_mem;
-    while (fromhost == 0);
-    fromhost = 0;
-
-    while(1);
-}
-
-void __attribute__((weak)) default_uart_init()
-{
-}
-
-void __attribute__((weak)) default_uart_putc(const char c)
-{
-    sting_putc_fesvr(c);
-
-    if(c == 0x4)
-        sting_exit_fesvr();
-}
-
-void uart_puts(const char* buffer, uint32_t len)
-{
-
-    sting_puts_fesvr(buffer, len);
-}
-
-void __attribute__((weak)) default_exit_sim()
-{
-    sting_exit_fesvr();
-}
-*/

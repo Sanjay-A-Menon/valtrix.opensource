@@ -1,14 +1,24 @@
+/*
+
+mmu.s
+A RISC-V assembly code to create and Simulate operations 
+with MMU turned on.
+
+*/
+
 .text
 
 .global _start
 
 _start:
 
+//Page table creation happens here
 la x14, loop
 csrw stvec, x14
 la sp, stack_end
 call pg_populate
 
+//MMU turned ON here
 la x14, pg_lvl
 sra x14, x14 ,12
 csrw satp , x14
@@ -27,6 +37,7 @@ mret
 
 .global come_here
 
+//Printing output
 come_here:
 la sp, stack_end
 call uart
