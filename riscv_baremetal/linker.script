@@ -2,17 +2,10 @@ ENTRY("_start")
 
 SECTIONS
 {
-    MMU 0xC0000000 : AT(0x80000000)
+    BOOTUP_0 0x80000000: AT(0x80000000)
     {
-        */init.o (*)
-        
-    }
-
-    BOOTUP_0 0x81000000: AT(0x81000000)
-    {
-        */mmu.o (*)
-        */mmu_cpp.o(*)
-        */uart.o (*)
+        */change_mode.o (*)
+        */hang.o (*)
     }
 
 

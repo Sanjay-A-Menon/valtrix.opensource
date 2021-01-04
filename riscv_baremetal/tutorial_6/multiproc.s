@@ -1,3 +1,11 @@
+/*
+
+multicproc.s
+A RISC-V assembly code for simulating multiprocessor operations
+
+*/
+
+
 .text
 
 .global _start
