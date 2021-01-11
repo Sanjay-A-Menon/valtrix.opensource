@@ -1,0 +1,19 @@
+ENTRY("_start")
+
+SECTIONS
+{
+    BOOTUP_0 0x81000000: AT(0x81000000)
+    {
+        */mmu.o(*)
+        */uart.o(*)
+        */mmu_cpp.o(*)
+    }
+
+    SUP 0xC0000000: AT(0x80000000)
+    {
+        */init.o(*)
+    }
+
+
+}
+
