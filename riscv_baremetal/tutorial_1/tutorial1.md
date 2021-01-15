@@ -7,7 +7,7 @@ This is an introductory tutorial on learning the basics of RISCV assembly progra
 This tutorial folder contains a RISCV assembly file(.s format), a build file and a linker script. The steps to run the code on spike is as follows:-
 
 * ```cd tutorial_1```
-* ```./build.sh```
+* ```./build_tut1.sh```
 * ``` spike -m0x80000000:0x10000000 tutorial_1.elf ```
 
 The explanation of the code is provided along with the code as comments and a similar approach is done for the build files as well. For the Linker files you can read through the explanation down below, as and when the need arises.
