@@ -16,7 +16,7 @@ The explanation of the code is provided along with the code as comments and a si
 
 ## Linker Script Explanation
 
-This is equivalent to the one in tutorial 1. Please click here[] to go there.
+This is equivalent to the one in tutorial 1. Please [click here](https://github.com/Sanjay-A-Menon/valtrix.opensource/blob/main/riscv_baremetal/tutorial_1/tutorial1.md#linker-script-explanation) to go there.
 
 
 ## Contributing
