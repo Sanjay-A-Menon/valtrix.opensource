@@ -20,7 +20,7 @@ This tutorial assumes that you have [spike](https://github.com/riscv/riscv-isa-s
     - ```.balign``` - This is called the Byte align operation and is required for aligning memory and is required when you are writing into register/memory areas so that the data aligns properly. For eg:- ```.balign 8``` aligns the underlying operation by 8 Bytes.
     - ```.space```  - This operation is used for allocating memory in bytes. For eg:- ```.space 4096``` allocates 4KB of memory.
  
- **Please note** that this only helps you in reading through the piece of code. It is recommended that you go through the [RISCV ISA Specification](https://riscv.org/technical/specifications/) and this(https://inst.eecs.berkeley.edu/~cs61c/sp19/lectures/lec05.pdf) introductory lecture from Berkeley EECS for more detailed explanation.
+ **Please note** that this only helps you in reading through the piece of code. It is recommended that you go through the [RISCV ISA Specification](https://riscv.org/technical/specifications/) and [this](https://inst.eecs.berkeley.edu/~cs61c/sp19/lectures/lec05.pdf) introductory lecture from Berkeley EECS for more detailed explanation.
  
 ## Acknowledgements
 
