@@ -1,6 +1,6 @@
 # Tutorial 5 - A tutorial for learning MMU operations and address Translation
 
-This tutorial explains how a function call is done from an assembly program to a C/C++ program. This is especially useful when you want to do most of the general processing on C/C++ code and also maintain the functionality of the assembly code to access and manipulate all of the memory and registers in the RISCV ecosystem.
+This tutorial uses the concept of MMU to provide a method for address translation so as to provide different Virtual addresses and Physical addresses for certain memory locations so as to provide a method of abstraction for certain privilege levels other than machine mode. A page table is setup based on the the page size and accordingly the MMU is also setup by writing into the ```satp``` register.
 
 ## The code and how to build and run it!
 
