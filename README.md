@@ -8,7 +8,7 @@ This tutorial assumes that you have [spike](https://github.com/riscv/riscv-isa-s
 
 ## Usage
 
-- Following the tutorial step by step starting with the first one is recommended for **beginners**. You are also requested to go through the RISCV assembly explanation given [here](https://github.com/Sanjay-A-Menon/valtrix.opensource/edit/main/README.md#General-RISCV-Assembly-Explanation).
+- Following the tutorial step by step starting with the first one is recommended for **beginners**. You are also requested to go through the RISCV assembly explanation given [here](https://github.com/Sanjay-A-Menon/valtrix.opensource/blob/main/README.md#general-riscv-assembly-explanation).
 - For people with a bit of RISCV programming experience could just look into parts of the tutorial of interest to them.
 
 ## General RISCV Assembly Explanation
