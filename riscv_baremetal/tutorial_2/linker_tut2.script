@@ -1,0 +1,13 @@
+ENTRY("_start")
+
+SECTIONS
+{
+    BOOTUP_0 0x80000000: AT(0x80000000)
+    {
+        */test_calls.o(*)
+        */test_calls_cpp.o(*)
+    }
+
+
+}
+

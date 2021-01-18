@@ -38,7 +38,7 @@ ld x15, 0(x14)
 bne x15, a0, hang
 
 //Calling UART: critical section
-call uart
+call uart_spike
 
 //Assigning values for the next CPU
 csrr a0,mhartid
@@ -59,7 +59,7 @@ loop:
 j loop
 
 exit:
-call sting_exit_fesvr
+call exit_spike
 
 
 .data
